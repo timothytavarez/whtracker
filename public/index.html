@@ -13,92 +13,25 @@
   </head>
   <body>
     
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <a class="navbar-brand" ui-sref="homeRoot">ROME Mapping Tool</a>
-        <button type="button" class="btn btn-primary navbar-btn">Add Route</button>
+        <button type="button" ui-sref="mappingRoot" class="btn btn-primary navbar-btn">Add Route</button>
       </div>
     </nav>
     
+    
     <div class="container">
-      
-    <div class="row">
-      <div class="col-md-10">
-        <div class="panel panel-primary">
-          <!-- Default panel contents -->
-          <div class="panel-heading panel-primary">Most recent routes</div>
-          <div class="panel-body">
-          </div>
-
-          <!-- Table -->
-          <table class="table table-bordered table-striped">
-
-            <tr>
-              <td>Entrance</td>
-              <td>Connections</td>
-              <td>Reported Time</td>
-              <td>Reporter</td>
-              <td>Comments</td>
-              <td>Closed?</td>
-            </tr>
-
-            <tr>
-              <td><a href="">RPS-0K</a></td>
-              <td>Jita - Poitot</td>
-              <td>03:04 UTC</td>
-              <td>Haze DuSid</td>
-              <td>Gief ISK bitch.</td>
-              <td><button class="btn-danger">Closed</button></td>
-            </tr>
-
-          </table>
-          
-        </div>
-      </div>
-    </div>
-      
       <div class="row">
-        <div class="col-md-6">
-        
-          <div class="panel panel-default">
-          <!-- Default panel contents -->
-          <div class="panel-heading panel-primary">Drifter WHs to Valhalla</div>
-          <div class="panel-body">
+        <div class="col-md-12">
+          <div ui-view>
           </div>
-
-          <!-- Table -->
-          <table class="table table-bordered table-striped">
-
-            <tr>
-              <td>System</td>
-              <td>Bat Signal</td>
-
-            </tr>
-
-            <tr>
-              <td>RPS-0K</td>
-              <td>
-                <button class="btn-info">Active</button>
-                <button class="btn-danger">Closed</button>
-              </td>
-            </tr>
-
-          </table>
-          
-        </div>
-          
         </div>
       </div>
-    
     </div>
     
     
-<!--    <a ui-sref="mappingRoot">Mapping Root</a>-->
-    
-    <div ui-view>
-    
-    </div>
-    
+    <script src="assets/js/angular.js"></script>
     
     <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
     <script>
@@ -113,9 +46,8 @@
       firebase.initializeApp(config);
     </script>
     
-    
-    <script src="assets/js/angular.js"></script>
     <script src="assets/js/angular-ui-router.js"></script>
+    <script src="assets/js/angularfire.js"></script>
     
     <script src="app.js"></script>
     

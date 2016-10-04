@@ -5,15 +5,21 @@
   .module('tracker.mapping')
   .factory('mapping', mapping);
   
-  mapping.$inject = [];
+  mapping.$inject = ['FBURL', '$firebaseObject', '$state', '$firebaseArray'];
   
-  function mapping () {
+  function mapping (FBURL, $firebaseObject, $state, $firebaseArray) {
+    
+//    var routeRef = new Firebase(FBURL + 'routes/');
+    
+    var routeRef = firebase.database().ref().child("routes");
     
     var service = {
       
-      getSolarSystems: getSolarSystems,
-//      getConstellations: getConstellations,
-//      getRegions: getRegions
+      createRoute: createRoute,
+      getRoutes: getRoutes,
+      getRoute: getRoute,
+      updateRoute: updateRoute,
+      deleteRoute: deleteRoute
       
     };
     
@@ -21,21 +27,67 @@
     
     /////////
     
-    function getSolarSystems() {
-      
-      var systems = [
-        {
-        name: 'RPS-0K',
-        status: false
-        },
-        {
-        name: 'Poitot',
-        status: true
-        }
+    
+    function createRoute(newRoute) {
+      routeRef.push({
+//        id: Firebase.ServerValue.TIMESTAMP,
+        entrance: newRoute.routeEntrance,
+        connection1: newRoute.routeConnection1,
+        notes: newRoute.notes
+      }).then(function() {
         
-      ]
+        $state.go('homeRoot');
+        console.log('Submitted route!');
+        
+      }, function(error) {
+        
+        console.log('Failure!');
+        
+      })
       
-      return systems;
+    }
+    
+    function getRoutes() {
+      
+      return $firebaseArray(routeRef);
+      
+    }
+    
+    function getRoute(routeID) {
+      
+      var routeRef = firebase.database().ref().child("routes/" + routeID);
+      
+      return $firebaseObject(routeRef);
+      
+    }
+    
+    function updateRoute(route) {
+      
+      route.$save().then(function (success) {
+        
+        $state.go('homeRoot');
+        
+        return success;
+        
+      }, function (error) {
+        
+        console.log(error);
+        
+      })
+      
+    }
+    
+    function deleteRoute(route) {
+      
+      route.$remove().then(function (success) {
+        
+        console.log('Route deleted.');
+        
+      }, function (error) {
+        
+        console.log(error);
+        
+      })
       
     }
     

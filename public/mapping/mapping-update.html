@@ -1,0 +1,22 @@
+<section ng-controller="MappingController as vm" ng-init="vm.getRoute();">
+
+    <h4>Update Route</h4>
+  <form>
+    
+    <div class="form-group">
+      
+      <label for="entranceSystem">Entrance System</label>
+      <input type="text" class="form-control" ng-model="vm.route.entrance" placeholder="Wormhole Entrance System">
+      
+      <label for="connectionSystem1">Connection System</label>
+      <input type="text" class="form-control" ng-model="vm.route.connection1" placeholder="Connection System 1">
+      <label for="notes">Notes</label>
+      <textarea class="form-control" rows="3" placeholder="Notes" ng-model="vm.route.notes"></textarea>
+      
+    </div>
+  </form>
+  
+  <button class="btn btn-primary" ng-click="vm.updateRoute();">Update Route</button>
+  <button class="btn btn-danger" ng-click="vm.deleteRoute();">Delete Route</button>
+  
+</section>

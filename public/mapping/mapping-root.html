@@ -1,7 +1,21 @@
 <section ng-controller="MappingController as vm">
   
-  <button class="btn-primary" ng-click="vm.getSolarSystems();">Get Solar Systems</button>
+  <h4>Add New Route</h4>
+  <form>
+    
+    <div class="form-group">
+      
+      <label for="entranceSystem">Entrance System</label>
+      <input type="text" class="form-control" ng-model="newRoute.routeEntrance" placeholder="Wormhole Entrance System">
+      
+      <label for="connectionSystem1">Connection System</label>
+      <input type="text" class="form-control" ng-model="newRoute.routeConnection1" placeholder="Connection System 1">
+      <label for="notes">Notes</label>
+      <textarea class="form-control" rows="3" placeholder="Notes" ng-model="newRoute.notes"></textarea>
+      
+    </div>
+  </form>
   
-  <p>Solar Systems: {{ vm.solarSystems }}</p>
+  <button class="btn-primary" ng-click="vm.createRoute(newRoute);">Create Route</button>
 
 </section>

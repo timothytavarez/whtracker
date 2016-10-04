@@ -5,25 +5,70 @@
   .module('tracker.mapping')
   .controller('MappingController', MappingController);
   
-  MappingController.$inject = ['mapping'];
+  MappingController.$inject = ['mapping', '$firebaseObject', '$firebaseArray', '$stateParams', '$state'];
   
-  function MappingController(mapping) {
+  function MappingController(mapping, $firebaseObject, $firebaseArray, $stateParams, $state) {
     
     var vm = this;
-    vm.getSolarSystems = getSolarSystems;
-    vm.addMapping = addMapping;
+    vm.createRoute = createRoute;
+    vm.getRoutes = getRoutes();
+    vm.getRoute = getRoute;
+    vm.updateRoute = updateRoute;
+    vm.deleteRoute = deleteRoute;
     
-    function getSolarSystems() {
+    function createRoute(newRoute) {
       
-      vm.solarSystems = mapping.getSolarSystems();
+      mapping.createRoute(newRoute);
       
     }
     
-    function addMapping() {
+    function getRoutes() {
       
-      vm.addMapping = mapping.addMapping();
+      vm.routes = mapping.getRoutes();
+      console.log('Route retrieval initialized.')
+      console.log(vm.routes);
+      
+      var routes = vm.routes;
       
     }
+    
+    function getRoute() {
+      
+      var routeID = $stateParams.routeID;
+      
+      vm.route = mapping.getRoute(routeID);
+      
+      console.log(vm.route);
+      
+    }
+    
+    function updateRoute() {
+      
+      var route = vm.route;
+      console.log('Attempting update');
+      
+      mapping.updateRoute(route);
+      
+    }
+    
+    function deleteRoute() {
+      
+      var route = vm.route;
+      
+      route.$remove()
+      .then(function (success) {
+        
+        console.log('Deleting item...');
+        $state.go('homeRoot');
+        
+      }, function(error) {
+        
+        console.log(error);
+        
+      })
+      
+    }
+    
     
   }
   

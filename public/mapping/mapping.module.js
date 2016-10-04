@@ -12,6 +12,12 @@
       controller: 'MappingController',
       controllerAs: 'vm'
     })
+    .state('updateRoute', {
+      url: 'route/update/:routeID',
+      templateUrl: 'mapping/mapping-update.html',
+      controller: 'MappingController',
+      controllerAs: 'vm'
+    })
     
   }])
   

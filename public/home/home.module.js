@@ -9,7 +9,7 @@
       .state('homeRoot', {
         url: '/home',
         templateUrl: 'home/home-root.html',
-        controller: 'HomeController',
+        controller: 'MappingController',
         controllerAs: 'vm'
       })
       

@@ -9,8 +9,6 @@
   
   function mapping (FBURL, $firebaseObject, $state, $firebaseArray) {
     
-//    var routeRef = new Firebase(FBURL + 'routes/');
-    
     var routeRef = firebase.database().ref().child("routes");
     
     var service = {
@@ -30,6 +28,8 @@
     
     function createRoute(newRoute) {
       routeRef.push({
+        
+//       TODO Will have to find out what new ID method is being used by the Firebase API
 //        id: Firebase.ServerValue.TIMESTAMP,
         entrance: newRoute.routeEntrance,
         connection1: newRoute.routeConnection1,

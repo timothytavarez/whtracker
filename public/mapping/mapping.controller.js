@@ -51,6 +51,8 @@
       
     }
     
+//   TODO function deleteRoute() will need to be delegated to the mapping service for consistency sake.
+    
     function deleteRoute() {
       
       var route = vm.route;

@@ -12,6 +12,12 @@
         controller: 'MappingController',
         controllerAs: 'vm'
       })
+      .state('root', {
+        url: '/',
+        templateUrl: 'home/home-root.html',
+        contoller: 'MappingController',
+        controllerAs: 'vm'
+      })
       
   }])
 

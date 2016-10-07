@@ -1,0 +1,29 @@
+{
+  "name": "tracker",
+  "version": "0.0.1",
+  "description": "A wormhole tracking tool for the game EVE Online.",
+  "main": "public/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timothytavarez/whtracker.git"
+  },
+  "keywords": [
+    "eveonline"
+  ],
+  "author": "Timothy Tavarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timothytavarez/whtracker/issues"
+  },
+  "homepage": "https://github.com/timothytavarez/whtracker#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-loading-bar": "^0.9.0",
+    "bootstrap": "^3.3.7",
+    "firebase": "^3.4.1",
+    "ng-toast": "^2.0.0"
+  }
+}

@@ -5,9 +5,9 @@
   .module('tracker.mapping')
   .controller('MappingController', MappingController);
   
-  MappingController.$inject = ['mapping', '$firebaseObject', '$firebaseArray', '$stateParams', '$state'];
+  MappingController.$inject = ['mapping', '$firebaseObject', '$firebaseArray', '$stateParams', '$state', 'ngToast'];
   
-  function MappingController(mapping, $firebaseObject, $firebaseArray, $stateParams, $state) {
+  function MappingController(mapping, $firebaseObject, $firebaseArray, $stateParams, $state, ngToast) {
     
     var vm = this;
     vm.createRoute = createRoute;
@@ -62,6 +62,9 @@
         
         console.log('Deleting item...');
         $state.go('homeRoot');
+        
+//        TODO additional testing on toast creation.
+//        ngToast.create('A test toast');
         
       }, function(error) {
         

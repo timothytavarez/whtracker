@@ -4,6 +4,8 @@ angular.module('tracker', [
   
   'ui.router',
   'firebase',
+  'angular-loading-bar',
+  'ngToast',
   
   'tracker.home',
   'tracker.mapping'

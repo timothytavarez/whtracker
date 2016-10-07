@@ -7,20 +7,11 @@ angular.module('tracker', [
   'angular-loading-bar',
   'ngToast',
   
+  'tracker.config',
   'tracker.home',
   'tracker.mapping'
   
 ])
-.constant('FBURL', 'https://tracker-5d6e4.firebaseio.com/')
-
-.constant('version', '0.1')
-
-.config(['$urlRouterProvider', function ($urlRouterProvider) {
-  
-  $urlRouterProvider.otherwise('/');
-  
-}])
-
 
 .run(['$rootScope', '$log', '$state', 
     function($rootScope, $log, $state) {

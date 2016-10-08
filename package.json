@@ -21,7 +21,10 @@
   "homepage": "https://github.com/timothytavarez/whtracker#readme",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
     "angular-loading-bar": "^0.9.0",
+    "angular-touch": "^1.5.8",
+    "angular-ui-bootstrap": "^2.1.4",
     "bootstrap": "^3.3.7",
     "firebase": "^3.4.1",
     "ng-toast": "^2.0.0"

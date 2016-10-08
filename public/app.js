@@ -3,6 +3,9 @@
 angular.module('tracker', [
   
   'ui.router',
+  'ui.bootstrap',
+  'ngAnimate',
+  'ngTouch',
   'firebase',
   'angular-loading-bar',
   'ngToast',

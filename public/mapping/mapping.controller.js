@@ -15,6 +15,8 @@
     vm.getRoute = getRoute;
     vm.updateRoute = updateRoute;
     vm.deleteRoute = deleteRoute;
+    vm.createSystem = createSystem;
+    vm.getSystems = getSystems();
     
     function createRoute(newRoute) {
       
@@ -25,8 +27,6 @@
     function getRoutes() {
       
       vm.routes = mapping.getRoutes();
-      console.log('Route retrieval initialized.')
-      console.log(vm.routes);
       
       var routes = vm.routes;
       
@@ -45,7 +45,6 @@
     function updateRoute() {
       
       var route = vm.route;
-      console.log('Attempting update');
       
       mapping.updateRoute(route);
       
@@ -60,7 +59,6 @@
       route.$remove()
       .then(function (success) {
         
-        console.log('Deleting item...');
         $state.go('homeRoot');
         
 //        TODO additional testing on toast creation.
@@ -71,6 +69,20 @@
         console.log(error);
         
       })
+      
+    }
+    
+    function createSystem(system) {
+      
+      mapping.createSystem(system);
+      
+    }
+    
+    function getSystems() {
+      
+      vm.systems = mapping.getSystems();
+      
+      var systems = vm.systems;
       
     }
     

@@ -6,7 +6,7 @@
   
       <table class="table table-striped table-bordered">
 
-        <label>Most recent routes</label>
+        <h4>Most recent wormhole routes</h4>
         <tr>
           <td><b>Entrance System</b></td>
           <td><b>Connection 1</b></td>
@@ -22,7 +22,30 @@
         </tr>
 
       </table>
-    
+      
+      
+      <h4>Scanned Systems</h4>
+      
+      <form class="form-inline">
+        <div class="form-group">
+          
+          <input type="text" type="submit" ng-submit="vm.createSystem(system);" class="form-control" ng-model="system.name">
+          
+        </div>
+        
+        <button class="btn btn-primary" ng-click="vm.createSystem(system);">Add System</button>
+      </form>
+      <br>
+      <div class="btn-group" role="group">
+        
+        <button class="btn btn-default" ng-repeat="system in vm.systems">{{system.name}}</button>
+        
+        
+        
+      </div>
+      
+        
+        
     </div>
   </div>
 

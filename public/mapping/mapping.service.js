@@ -10,6 +10,7 @@
   function mapping (FBURL, $firebaseObject, $state, $firebaseArray) {
     
     var routeRef = firebase.database().ref().child("routes");
+    var systemRef = firebase.database().ref().child("systems");
     
     var service = {
       
@@ -17,7 +18,9 @@
       getRoutes: getRoutes,
       getRoute: getRoute,
       updateRoute: updateRoute,
-      deleteRoute: deleteRoute
+      deleteRoute: deleteRoute,
+      createSystem: createSystem,
+      getSystems: getSystems
       
     };
     
@@ -88,6 +91,20 @@
         console.log(error);
         
       })
+      
+    }
+    
+    function createSystem(system) {
+      
+      systemRef.push({
+        name: system.name
+      });
+      
+    }
+    
+    function getSystems() {
+      
+      return $firebaseArray(systemRef);
       
     }
     
